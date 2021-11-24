@@ -16,6 +16,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.Queue;
 import java.util.Stack;
+import java.util.UUID;
 
 
 @SpringBootTest
@@ -26,6 +27,8 @@ public class UserTest {
 
         User user = new User();
 
+        System.out.println("https://github.com/KingJin-web/Java_interview/blob/master/doc/java/1.Java获得对象的几种方式.md");
+        System.out.println("https://gitee.com/KingJin-web/Java_interview/blob/master/doc/java/1.Java获得对象的几种方式.md");
     }
 
 
@@ -38,13 +41,15 @@ public class UserTest {
             User user1 = (User) class1.newInstance();
             user1.init("test1", "男", 12);
             System.out.println(user1);
+            //或者
+            User user2 = User.class.newInstance();
 
             //   2.使用Constructor类的newInstance方法来创建兑现
             Class class2 = Class.forName("com.king.java_interview.java.a.User");
-            Constructor constructor = class2.getConstructor();
-            User user2 = (User) constructor.newInstance();
-            user2.init("test2", "男", 12);
-            System.out.println(user2);
+            Constructor<User> constructor = class2.getConstructor();
+            User user3 = constructor.newInstance();
+            user3.init("test2", "男", 12);
+            System.out.println(user3);
 
         } catch (ClassNotFoundException | InvocationTargetException | IllegalAccessException | InstantiationException | NoSuchMethodException e) {
             e.printStackTrace();
@@ -93,6 +98,17 @@ public class UserTest {
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
+
+
+    }
+
+    @Test
+    public void test5() throws InvocationTargetException, InstantiationException, IllegalAccessException, NoSuchMethodException {
+//        3使用Constructor类的newInstance方法
+//        和Class类的newInstance方法很像， java.lang.reflect.Constructor类里也有一个newInstance方法可以创建对象。
+        Constructor<User> constructor = User.class.getConstructor();
+        User user = constructor.newInstance();
+        System.out.println(user);
 
     }
 }

@@ -16,6 +16,10 @@ public class User implements Serializable, Cloneable {
     private String sex;
     private Integer age;
 
+    public User() {
+        System.out.println("User构造方法");
+    }
+
     public void init(String name, String sex, Integer age) {
         this.name = name;
         this.sex = sex;
