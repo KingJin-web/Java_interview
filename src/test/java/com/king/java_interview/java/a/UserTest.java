@@ -6,6 +6,11 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
@@ -17,6 +22,8 @@ import java.util.Stack;
 public class UserTest {
     @Test
     public void test1() {
+
+
         User user = new User();
 
     }
@@ -86,5 +93,7 @@ public class UserTest {
         } catch (ClassNotFoundException | IOException e) {
             e.printStackTrace();
         }
+
     }
 }
+
