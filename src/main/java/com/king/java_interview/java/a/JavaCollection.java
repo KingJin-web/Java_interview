@@ -2,11 +2,7 @@ package com.king.java_interview.java.a;
 
 import lombok.Data;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-
+import java.util.*;
 /**
  * @program: java_interview
  * @description:
